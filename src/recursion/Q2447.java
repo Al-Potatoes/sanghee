@@ -1,9 +1,9 @@
-package q2447;
+package recursion;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-public class Main {
+public class Q2447 {
     int n;
     char[][] array;
 
@@ -44,6 +44,6 @@ public class Main {
     }
 
     public static void main(String[] args) throws Exception {
-        new Main().solution();
+        new Q2447().solution();
     }
 }

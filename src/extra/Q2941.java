@@ -1,9 +1,9 @@
-package q2941;
+package extra;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-public class Main {
+public class Q2941 {
     int cnt = 0;
 
     public void solution() throws Exception {
@@ -25,6 +25,6 @@ public class Main {
     }
 
     public static void main(String[] args) throws Exception {
-        new Main().solution();
+        new Q2941().solution();
     }
 }
