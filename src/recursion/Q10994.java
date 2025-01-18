@@ -7,15 +7,14 @@ public class Q10994 {
     StringBuilder sb;
 
     public void rDrawStar(int k, int i, int j) {
-        int min = 2*k;
-        int dif = 4*n-4 - min;
+        int min = 2 * k;
+        int dif = 4 * n - 4 - min;
 
         if ((i == min || i == dif || j == min || j == dif)
                 && (i >= min && i <= dif && j >= min && j <= dif)) {
             sb.append("*");
             return;
         }
-
 
         if (k == n - 1) {
             sb.append(" ");
