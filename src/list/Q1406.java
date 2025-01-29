@@ -55,3 +55,8 @@ public class Q1406 {
         System.out.println(sb);
     }
 }
+
+// TODO : Java의 Iterator는 리스트의 "가상의 헤드"에서 시작하여 "가상의 테일"까지 이동
+//        가상의 헤드와 테일은 실제 데이터 원소를 가리키지 않고, 원소들 사이를 이동하며 접근을 용이
+
+// TODO : remove는 무조건 next나 previous를 호출한 뒤에 사용되어야 함 -> 해당 반환 값을 삭제
