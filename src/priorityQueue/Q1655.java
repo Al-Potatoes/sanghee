@@ -1,5 +1,6 @@
 package priorityQueue;
 
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -16,29 +17,20 @@ public class Q1655 {
         PriorityQueue<Integer> l = new PriorityQueue<>();
 
         StringBuilder sb = new StringBuilder();
+
         for (int i = 0; i < n; i++) {
-            int num = Integer.parseInt(br.readLine());
+            int mid = Integer.parseInt(br.readLine());
             if (i % 2 == 0)
-                h.add(num);
+                h.add(mid);
             else
-                l.add(num);
+                l.add(mid);
 
-            if(i == 0) {
-                sb.append(h.peek());
-            }
-            else {
-                int max = h.poll();
-                int min = l.poll();
-                h.add(min);
-                l.add(max);
-
-                if (l.peek() < h.peek())
-                    sb.append(l.peek());
-                else
-                    sb.append(h.peek());
+            if (!l.isEmpty() && (h.peek() > l.peek())) {
+                h.add(l.poll());
+                l.add(h.poll());
             }
 
-            sb.append("\n");
+            sb.append(h.peek()).append("\n");
         }
 
         System.out.print(sb);
