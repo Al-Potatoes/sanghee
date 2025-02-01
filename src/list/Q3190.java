@@ -29,10 +29,10 @@ public class Q3190 {
 
         LinkedList<int[]> list = new LinkedList<>();
         list.add(new int[]{0, 0});
-
-        int dir = 0, row = 0, col = 0, t = 0;
+        
         int x = 0;
         char c = ' ';
+        int dir = 0, row = 0, col = 0, t = 0;
         for (int i = 0; i < l + 1; i++) {
             if (i != l) {
                 st = new StringTokenizer(br.readLine());
@@ -42,12 +42,14 @@ public class Q3190 {
 
             while (true) {
                 t++;
-                if (dir % 360 == 0) col++;
-                if (dir % 360 == 90) row--;
-                if (dir % 360 == 180) col--;
-                if (dir % 360 == 270) row++;
+                switch (dir % 360) {
+                    case 0: col++; break;
+                    case 90: row--; break;
+                    case 180: col--; break;
+                    case 270: row++; break;
+                }
 
-                if (row < 0 || row >= n || col < 0 || col >= n) { // if 나가서 죽거나 -> 종료
+                if (row < 0 || row >= n || col < 0 || col >= n) {
                     System.out.println(t);
                     return;
                 }
@@ -60,22 +62,17 @@ public class Q3190 {
                 }
 
                 list.add(new int[]{row, col});
-                if (apple[row][col] == 0) {
-                    list.remove(0);
-                }
-                else{
-                    apple[row][col] = 0;
-                }
 
-                if (i != l && t == x) {
-                    break;
-                }
+                if (apple[row][col] == 0)
+                    list.removeFirst();
+                else
+                    apple[row][col] = 0;
+
+                if (i != l && t == x) break;
             }
 
-            if (c == 'D') dir -= 90;
-            if (c == 'L') dir += 90;
-
-            if (dir < 0) dir += 360;
+            if (c == 'D')  dir = (dir - 90 + 360) % 360;
+            if (c == 'L')  dir = (dir + 90 + 360) % 360;
         }
     }
 }
