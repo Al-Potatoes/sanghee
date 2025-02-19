@@ -1,4 +1,4 @@
-package graph;
+package graph_travelser;
 
 import java.io.BufferedReader;
 import java.io.IOException;
