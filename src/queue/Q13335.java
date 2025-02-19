@@ -16,27 +16,27 @@ public class Q13335 {
         int w = Integer.parseInt(st.nextToken());
         int l = Integer.parseInt(st.nextToken());
 
+        int[] cars = new int[n];
         st = new StringTokenizer(br.readLine());
-        Deque<Integer> cars = new ArrayDeque<>();
         for (int i = 0; i < n; i++) {
-            cars.add(Integer.parseInt(st.nextToken()));
+            cars[i] = Integer.parseInt(st.nextToken());
         }
 
-        int sec = 0, weight = 0;
-        Deque<int[]> bridge = new ArrayDeque<>();
-        while (!cars.isEmpty()) {
-            int cur = cars.peek();
+        Deque<Integer> bridge = new ArrayDeque<>();
+        for (int i = 0; i < w - 1; i++) {
+            bridge.add(0);
+        }
 
-            if(weight + cur <= l && bridge.size() < w) {
-                weight += cur;
-                bridge.add(new int[]{cars.poll(), 0});
+        int sec = 0, sum = 0, i = 0;
+        while (i < n) {
+            if (sum + cars[i] <= l) {
+                sum += cars[i];
+                bridge.add(cars[i++]);
             }
+            else
+                bridge.add(0);
 
-            for (int[] car : bridge)
-                car[1]++;
-
-            if(!bridge.isEmpty() && bridge.peek()[1] == w)
-                weight -= bridge.poll()[0];
+            sum -= bridge.poll();
 
             sec++;
         }
@@ -45,4 +45,4 @@ public class Q13335 {
     }
 }
 
-// 15712KB	128ms
+// 14352KB	116ms
