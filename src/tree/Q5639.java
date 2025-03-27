@@ -8,19 +8,6 @@ public class Q5639 {
     static int[] tree = new int[10001];
     static StringBuilder sb = new StringBuilder();
 
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
-        int i = 0;
-        String input;
-        while ((input = br.readLine()) != null && !input.isEmpty()) {
-            tree[i++] = Integer.parseInt(input);
-        }
-
-        postOrder(0, i - 1);
-        System.out.print(sb);
-    }
-
     static void postOrder(int s, int e) {
         if (s > e) {
             return;
@@ -39,6 +26,19 @@ public class Q5639 {
         postOrder(s + 1, mid - 1);
         postOrder(mid, e);
         sb.append(root).append("\n");
+    }
+
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        int i = 0;
+        String input;
+        while ((input = br.readLine()) != null && !input.isEmpty()) {
+            tree[i++] = Integer.parseInt(input);
+        }
+
+        postOrder(0, i - 1);
+        System.out.print(sb);
     }
 }
 
