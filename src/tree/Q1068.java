@@ -7,17 +7,18 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 public class Q1068 {
-    static ArrayList<Integer>[] graph;
-    static boolean[] visited;
+    static int d;
     static int root = 0;
     static int result = 0;
+    static ArrayList<Integer>[] tree;
 
     static void DFS(int v) {
-        visited[v] = true;
+        if(v == d)
+            return;
 
         int cnt = 0;
-        for (int i : graph[v]) {
-            if (!visited[i]) {
+        for (int i : tree[v]) {
+            if (i != d) {
                 cnt++;
                 DFS(i);
             }
@@ -31,36 +32,28 @@ public class Q1068 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine());
 
-        graph = new ArrayList[n];
-        for (int i = 0; i < graph.length; i++) {
-            graph[i] = new ArrayList<>();
+        tree = new ArrayList[n];
+        for (int i = 0; i < tree.length; i++) {
+            tree[i] = new ArrayList<>();
         }
-
-        visited = new boolean[n];
 
         StringTokenizer st = new StringTokenizer(br.readLine());
         for (int i = 0; i < n; i++) {
             int a = Integer.parseInt(st.nextToken());
 
-            if (a != -1) {
-                graph[i].add(a);
-                graph[a].add(i);
-            }
+            if (a != -1)
+                tree[a].add(i);
             else
                 root = i;
         }
 
-        int d = Integer.parseInt(br.readLine());
-        visited[d] = true;
+        d = Integer.parseInt(br.readLine());
 
         DFS(root);
 
-        if (root != d)
-            System.out.print(result);
-        else
-            System.out.print(0);
+        System.out.print(result);
     }
 }
 
-// TODO : visited 의 역할 !!
+// TODO : visitied 를 굳이 안 써도 됨
 // 14200KB 	104ms
