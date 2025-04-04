@@ -23,3 +23,5 @@ public class Q10808 {
         System.out.println(sb);
     }
 }
+
+// 14268KB	104ms
