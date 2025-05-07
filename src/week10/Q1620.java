@@ -30,7 +30,8 @@ public class Q1620 {
             String in = st.nextToken();
             if(Character.isDigit(in.charAt(0))) {
                 sb.append(idx.get(Integer.parseInt(in))).append("\n");
-            }else {
+            }
+            else {
                 sb.append(name.get(in)).append("\n");
             }
         }

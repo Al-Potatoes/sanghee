@@ -25,7 +25,6 @@ public class Q1940 {
                     cnt++;
                 }
             }
-
         }
 
         System.out.println(cnt);
