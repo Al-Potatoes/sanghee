@@ -18,7 +18,7 @@ public class Q14502 {
     static boolean[] visited;
 
     static int dfs(int v) {
-        if (visited[v] || safe[v] == 1) return 0;
+        if (visited[v]) return 0;
 
         visited[v] = true;
 
@@ -94,7 +94,7 @@ public class Q14502 {
     }
 }
 
-// 21524KB	264ms
+// 21208KB	248ms
 /* TODO : 리팩터링 전 - 3개의 벽을 선택할 때 모든 배열 인덱스를 다 검사 (약간 버블 정렬 느낌의 for 문)
           리팩터링 후 - 0으로 채워진 빈 공간의 인덱스를 리스트에 넣고 for 문을 돌릴 때 (약간 선택 정렬 느낌의 for 문)
                      w2는 w1 + 1 차례의 인덱스, w3은 w2 + 1 차례의 인덱스 값부터 검사
